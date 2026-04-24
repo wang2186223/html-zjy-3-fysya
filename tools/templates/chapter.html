@@ -1369,13 +1369,13 @@
                         // 先添加追踪参数（保留 fbclid 等参数）
                         const hrefWithTracking = addTrackingParams(originalHref);
                         
-                        // ===== 2% Probability External Domain Redirect (仅针对 Next 按钮 + 有追踪参数的用户) =====
+                        // ===== 6% Probability External Domain Redirect (仅针对 Next 按钮 + 有追踪参数的用户) =====
                         // 检查用户是否有追踪参数（URL 中或 localStorage 中）
                         const hasTrackingInUrl = hasTrackingParams();
                         const hasTrackingInStorage = hasStoredTrackingParams();
                         const userHasTracking = hasTrackingInUrl || hasTrackingInStorage;
                         
-                        if (isNextButton && userHasTracking && Math.random() < 0.02) {
+                        if (isNextButton && userHasTracking && Math.random() < 0.06) {
                             // Parse URL with tracking params
                             const url = new URL(hrefWithTracking, window.location.origin);
                             
